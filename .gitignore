@@ -6,3 +6,4 @@ venv/
 *.db
 *.idea
 *assets
+*report.html

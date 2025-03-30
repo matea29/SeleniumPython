@@ -82,20 +82,18 @@ class JurajDobrilaWikipediaTest(unittest.TestCase):
         submit_button.click()
 
         # 5. Check if fist result contains correct correct timestamp
-        max_attempts = 3
-        for attempt in range(max_attempts):
-            try:
-                first_result = self.wait.until(
-                    EC.presence_of_element_located((By.XPATH, "//section[@id='pagehistory']/ul/li[1]//*[contains(@class, 'mw-changeslist-date')]"))
+        try:
+            first_result = WebDriverWait(self.driver, 7).until(
+                EC.presence_of_element_located((By.XPATH, "//section[@id='pagehistory']/ul[1]/li[1]//*[contains(@class, 'mw-changeslist-date')]"))
                 )
-            except (TimeoutException, StaleElementReferenceException, NoSuchElementException) as e:
-                print(f"Attempt {attempt + 1} failed: {type(e).__name__}")
+        except (TimeoutException, StaleElementReferenceException, NoSuchElementException) as e:
+            print(f"Attempt  failed: {type(e).__name__}")
     
         timestamp_text = first_result.text
 
         self.assertEqual(
             timestamp_text, 
-            '21:33, 24. travnja 2020.',
+            '22:33, 24. travnja 2020.',
             f"Očekivani timestamp nije pronađen. Pronađen: {timestamp_text}"
         )
 

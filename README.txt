@@ -1,17 +1,21 @@
 """THIS IS README FILE"""
 """""""""""""""""""""""""
-Requirements:
+Installation
 
-1. Create a virtual environment
+Prerequisites
+Ensure you have Python 3.8+ installed. Use a virtual environment to manage dependencies.
+
+1. Fork the repository:
+    git fork <repository-url>
+
+2. Create a virtual environment
     python -m venv venv
     source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-2. Install:
-- installed python
-- installed selenium
-- installed pytest
-- installed webdriver-manager
-- installed pytest-html
-- installed html-testRunner
 
-3. Run pytest or pytest --html=report.html
+3. Install dependencies:
+    pip install -r requirements.txt
+
+4. How to run the project:
+    Run pytest or pytest --html=report.html
+
 
